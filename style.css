@@ -278,6 +278,42 @@ h1, h2, h3 {
     color: #4a5568;
 }
 
+.experience-skills {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px dashed var(--c-yellow);
+}
+
+.experience-skills-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--c-ink);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.experience-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.experience-skill-tag {
+    background: var(--c-yellow);
+    color: var(--c-ink);
+    padding: 0.35rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: bold;
+    border: 1px solid var(--c-ink);
+    transition: all 0.2s;
+}
+
+.experience-skill-tag:hover {
+    background: var(--c-orange);
+    color: white;
+}
+
 /* Contact */
 .contact-links { display: flex; flex-direction: column; gap: 2rem; }
 
