@@ -74,7 +74,7 @@ function executeCommand(cmd) {
 ╔════════════════════════════════════════════════════╗
 ║  help    - Show this menu                          ║
 ║  whoami  - Who are you?                            ║
-║  about   - About Jérémie                           ║
+║  about   - About Lorem                             ║
 ║  skills  - List skills                             ║
 ║  contact - Contact info                            ║
 ║  neofetch- System info                             ║
@@ -109,16 +109,16 @@ function executeCommand(cmd) {
             addOutput('Nice try! Use cat to read files instead.', 'cmd-info');
             break;
         case 'whoami':
-            addOutput('visitor@jeremie-portfolio');
+            addOutput('visitor@lorem-portfolio');
             break;
         case 'about':
-            addOutput('Jérémie Le Bel - Cybersecurity Specialist\nPenetration Testing | Network Security | Web Dev', 'cmd-info');
+            addOutput('Lorem Ipsum - Dolor Sit Amet\nConsectetur | Adipiscing | Elit', 'cmd-info');
             break;
         case 'skills':
-            addOutput('[SECURITY] ████████████████████░░ 90%\n[PYTHON]   ████████████████████░░ 90%\n[LINUX]    ██████████████████░░░░ 85%', 'cmd-info');
+            addOutput('[LOREM]    ████████████████████░░ 90%\n[IPSUM]    ████████████████████░░ 90%\n[DOLOR]    ██████████████████░░░░ 85%', 'cmd-info');
             break;
         case 'contact':
-            addOutput('📧 jeremie@example.com\n🐙 github.com/jeremie\n💼 linkedin.com/in/jérémie-le-bel', 'cmd-info');
+            addOutput('📧 lorem@ipsum.com\n🐙 github.com/lorem\n💼 linkedin.com/in/lorem', 'cmd-info');
             break;
         case 'neofetch':
             addOutput(`
@@ -127,12 +127,12 @@ function executeCommand(cmd) {
      :   \\ --''_..-'.'     OS: Portfolio Web 1.0
      |    . .-' \`. '.      Host: Your Browser
       \\     \`.  /  ..      Shell: Secret Terminal
-       ,|,\`.   \`-.\\        Skills: Cybersecurity
+       ,|,\`.   \`-.\\        Skills: Lorem Ipsum
       '.|| \`\`-...-\`
        |__|  /||\\`, 'cmd-info');
             break;
         case 'cowsay':
-            const m = message || 'Hire Jérémie!';
+            const m = message || 'Hire Lorem!';
             addOutput(` ${'_'.repeat(m.length+2)}\n< ${m} >\n ${'-'.repeat(m.length+2)}\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||`);
             break;
         case 'clear':
@@ -184,8 +184,8 @@ function drawStars() {
 
 // --- Modal ---
 const modalData = [
-    { title: "Security Audit Tool", description: "Automated vulnerability scanner for web applications. Identifies SQL injection, XSS vulnerabilities, and security misconfigurations.", tech: "Python, Flask", status: "Completed" },
-    { title: "Network Monitor", description: "Real-time traffic analysis system with anomaly detection and alerting capabilities.", tech: "Node.js, MongoDB", status: "In Progress" }
+    { title: "Lorem Ipsum Dolor", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", tech: "Lorem, Ipsum", status: "Lorem" },
+    { title: "Amet Consectetur", description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", tech: "Dolor, Sit", status: "Amet" }
 ];
 
 function openModal(i) {
