@@ -186,38 +186,53 @@ function drawStars() {
 const modalData = [
     { 
         title: "Lorem Ipsum Dolor", 
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        tech: ["Lorem", "Ipsum", "Dolor", "Sit", "Amet"],
-        status: "Lorem Ipsum",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        tech: ["Lorem", "Ipsum", "Dolor", "Sit"],
+        status: "Completed",
         features: [
             "Lorem ipsum dolor sit amet consectetur",
             "Adipiscing elit sed do eiusmod tempor",
             "Incididunt ut labore et dolore magna",
             "Ut enim ad minim veniam quis nostrud"
         ],
-        details: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+        details: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.",
         date: "Lorem 2024",
         link: "#"
     },
     { 
         title: "Amet Consectetur", 
-        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
         tech: ["Consectetur", "Adipiscing", "Elit"],
-        status: "Dolor Sit",
+        status: "In Progress",
         features: [
             "Excepteur sint occaecat cupidatat non",
             "Sunt in culpa qui officia deserunt",
-            "Mollit anim id est laborum sed ut",
-            "Perspiciatis unde omnis iste natus"
+            "Mollit anim id est laborum sed ut"
         ],
-        details: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+        details: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores.",
         date: "Ipsum 2024",
+        link: "#"
+    },
+    { 
+        title: "Sed Eiusmod Tempor", 
+        description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        tech: ["Tempor", "Incididunt", "Labore"],
+        status: "Completed",
+        features: [
+            "Perspiciatis unde omnis iste natus",
+            "Error sit voluptatem accusantium",
+            "Doloremque laudantium totam rem"
+        ],
+        details: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+        date: "Dolor 2024",
         link: "#"
     }
 ];
 
 function openModal(i) {
     const d = modalData[i];
+    if (!d) return;
+    
     const modal = document.getElementById('projectModal');
     
     document.getElementById('modalTitle').innerText = d.title;
@@ -263,14 +278,10 @@ function toggleCategory(header) {
 
 // --- Initialize ---
 document.addEventListener('DOMContentLoaded', function() {
-    // Load CTF winners
     loadCTFWinners();
-    
-    // Initialize starfield
     resizeCanvas();
     drawStars();
     
-    // GSAP Animations
     gsap.registerPlugin(ScrollTrigger);
     document.querySelectorAll('.panel').forEach(panel => {
         const box = panel.querySelector('.hero-box, .content-box');
@@ -282,7 +293,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a.addEventListener('click', e => {
             e.preventDefault();
@@ -295,17 +305,26 @@ document.addEventListener('DOMContentLoaded', function() {
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('scroll', () => scrollY = window.scrollY);
 
-// Konami code listener
 document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const modal = document.getElementById('projectModal');
+        if (modal.classList.contains('active')) {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }, 400);
+        }
+        closeTerminal();
+    }
+    
     if (!document.getElementById('terminalOverlay').classList.contains('active')) {
         konamiCode.push(e.key);
         konamiCode = konamiCode.slice(-4);
         if (konamiCode.join(',') === secretCode.join(',')) openTerminal();
     }
-    if (e.key === 'Escape') closeTerminal();
 });
 
-// Terminal input listener
 document.getElementById('terminalInput')?.addEventListener('keydown', (e) => {
     if (e.key === 'Enter' && e.target.value.trim()) {
         addOutput(`$ ${e.target.value}`, 'cmd-input');
