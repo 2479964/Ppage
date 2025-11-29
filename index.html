@@ -233,11 +233,34 @@
     <div id="projectModal" class="modal" onclick="closeModal(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close-btn" onclick="closeModal(event)">×</span>
-            <h3 id="modalTitle"></h3>
-            <p id="modalDescription"></p>
-            <hr style="border:2px solid var(--c-ink);margin:1.5rem 0;">
-            <p><strong>Technologies:</strong> <span id="modalTech"></span></p>
-            <p><strong>Status:</strong> <span id="modalStatus"></span></p>
+            <div class="modal-header">
+                <h3 id="modalTitle"></h3>
+                <div class="modal-status-badge" id="modalStatus"></div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-section">
+                    <div class="modal-section-title">Overview</div>
+                    <p id="modalDescription"></p>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">Technologies Used</div>
+                    <div class="modal-tech-list" id="modalTech"></div>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">Key Features</div>
+                    <ul class="modal-features" id="modalFeatures"></ul>
+                </div>
+                <div class="modal-section">
+                    <div class="modal-section-title">Details</div>
+                    <p id="modalDetails"></p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <span id="modalDate" style="color:#666;"></span>
+                <a href="#" class="modal-link" id="modalLink">
+                    View Project →
+                </a>
+            </div>
         </div>
     </div>
 

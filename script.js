@@ -184,22 +184,75 @@ function drawStars() {
 
 // --- Modal ---
 const modalData = [
-    { title: "Lorem Ipsum Dolor", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", tech: "Lorem, Ipsum", status: "Lorem" },
-    { title: "Amet Consectetur", description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", tech: "Dolor, Sit", status: "Amet" }
+    { 
+        title: "Lorem Ipsum Dolor", 
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        tech: ["Lorem", "Ipsum", "Dolor", "Sit", "Amet"],
+        status: "Lorem Ipsum",
+        features: [
+            "Lorem ipsum dolor sit amet consectetur",
+            "Adipiscing elit sed do eiusmod tempor",
+            "Incididunt ut labore et dolore magna",
+            "Ut enim ad minim veniam quis nostrud"
+        ],
+        details: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem.",
+        date: "Lorem 2024",
+        link: "#"
+    },
+    { 
+        title: "Amet Consectetur", 
+        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+        tech: ["Consectetur", "Adipiscing", "Elit"],
+        status: "Dolor Sit",
+        features: [
+            "Excepteur sint occaecat cupidatat non",
+            "Sunt in culpa qui officia deserunt",
+            "Mollit anim id est laborum sed ut",
+            "Perspiciatis unde omnis iste natus"
+        ],
+        details: "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.",
+        date: "Ipsum 2024",
+        link: "#"
+    }
 ];
 
 function openModal(i) {
     const d = modalData[i];
+    const modal = document.getElementById('projectModal');
+    
     document.getElementById('modalTitle').innerText = d.title;
     document.getElementById('modalDescription').innerText = d.description;
-    document.getElementById('modalTech').innerText = d.tech;
     document.getElementById('modalStatus').innerText = d.status;
-    document.getElementById('projectModal').style.display = 'flex';
+    document.getElementById('modalDetails').innerText = d.details;
+    document.getElementById('modalDate').innerText = d.date;
+    document.getElementById('modalLink').href = d.link;
+    
+    // Build tech list
+    const techContainer = document.getElementById('modalTech');
+    techContainer.innerHTML = d.tech.map(t => `<span class="modal-tech-item">${t}</span>`).join('');
+    
+    // Build features list
+    const featuresContainer = document.getElementById('modalFeatures');
+    featuresContainer.innerHTML = d.features.map(f => `<li>${f}</li>`).join('');
+    
+    // Show modal with animation
+    modal.style.display = 'flex';
+    requestAnimationFrame(() => {
+        modal.classList.add('active');
+    });
+    
+    document.body.style.overflow = 'hidden';
 }
 
 function closeModal(e) {
     if (e.target.id === 'projectModal' || e.target.classList.contains('close-btn')) {
-        document.getElementById('projectModal').style.display = 'none';
+        const modal = document.getElementById('projectModal');
+        modal.classList.remove('active');
+        
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 400);
     }
 }
 
