@@ -74,7 +74,7 @@ function executeCommand(cmd) {
 ╔════════════════════════════════════════════════════╗
 ║  help    - Show this menu                          ║
 ║  whoami  - Who are you?                            ║
-║  about   - About Lorem                             ║
+║  about   - About Jérémie                           ║
 ║  skills  - List skills                             ║
 ║  contact - Contact info                            ║
 ║  neofetch- System info                             ║
@@ -109,16 +109,16 @@ function executeCommand(cmd) {
             addOutput('Nice try! Use cat to read files instead.', 'cmd-info');
             break;
         case 'whoami':
-            addOutput('visitor@lorem-portfolio');
+            addOutput('visitor@jeremie-portfolio');
             break;
         case 'about':
-            addOutput('Lorem Ipsum - Dolor Sit Amet\nConsectetur | Adipiscing | Elit', 'cmd-info');
+            addOutput('Jérémie Le Bel - Cybersecurity Specialist\nLorem Ipsum | Dolor Sit | Amet', 'cmd-info');
             break;
         case 'skills':
             addOutput('[LOREM]    ████████████████████░░ 90%\n[IPSUM]    ████████████████████░░ 90%\n[DOLOR]    ██████████████████░░░░ 85%', 'cmd-info');
             break;
         case 'contact':
-            addOutput('📧 lorem@ipsum.com\n🐙 github.com/lorem\n💼 linkedin.com/in/lorem', 'cmd-info');
+            addOutput('📧 lorem@ipsum.com\n🐙 github.com/lorem\n💼 linkedin.com/in/jérémie-le-bel-964225338', 'cmd-info');
             break;
         case 'neofetch':
             addOutput(`
@@ -132,7 +132,7 @@ function executeCommand(cmd) {
        |__|  /||\\`, 'cmd-info');
             break;
         case 'cowsay':
-            const m = message || 'Hire Lorem!';
+            const m = message || 'Hire Jérémie!';
             addOutput(` ${'_'.repeat(m.length+2)}\n< ${m} >\n ${'-'.repeat(m.length+2)}\n        \\   ^__^\n         \\  (oo)\\_______\n            (__)\\       )\\/\\\n                ||----w |\n                ||     ||`);
             break;
         case 'clear':
